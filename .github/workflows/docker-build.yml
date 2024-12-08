@@ -19,6 +19,7 @@ jobs:
             echo "TAGS=latest" >> $GITHUB_ENV
           else
             echo "TAGS=${{ github.sha }}" >> $GITHUB_ENV
+          fi
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
