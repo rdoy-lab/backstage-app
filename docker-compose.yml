@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "7007:7007"
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: backuser
+      POSTGRES_PASSWORD: backpass
+      POSTGRES_DATABASE: backstage
+      AUTH0_CLIENT_ID: aaa
+      AUTH0_CLIENT_SECRET: bbb
+      AUTH0_DOMAIN: ccc.us.auth0.com
+      AUTH_SESSION_SECRET: shhh-big-secret
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: backpass
+      POSTGRES_USER: backuser
+      POSTGRES_DB: backstage

@@ -4,7 +4,7 @@
 FROM node:20-bookworm-slim AS packages
 
 WORKDIR /app
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock backstage.json ./
 COPY .yarn ./.yarn
 COPY .yarnrc.yml ./
 
@@ -83,7 +83,7 @@ WORKDIR /app
 # Copy the install dependencies from the build stage and context
 COPY --from=build --chown=node:node /app/.yarn ./.yarn
 COPY --from=build --chown=node:node /app/.yarnrc.yml  ./
-COPY --from=build --chown=node:node /app/yarn.lock /app/package.json /app/packages/backend/dist/skeleton/ ./
+COPY --from=build --chown=node:node /app/yarn.lock /app/package.json /app/backstage.json /app/packages/backend/dist/skeleton/ ./
 # Note: The skeleton bundle only includes package.json files -- if your app has
 # plugins that define a `bin` export, the bin files need to be copied as well to
 # be linked in node_modules/.bin during yarn install.
