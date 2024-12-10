@@ -9,7 +9,7 @@ services:
       POSTGRES_HOST: db
       POSTGRES_USER: backuser
       POSTGRES_PASSWORD: backpass
-      POSTGRES_DATABASE: backstage
+      POSTGRES_DB: backstage
       AUTH0_CLIENT_ID: aaa
       AUTH0_CLIENT_SECRET: bbb
       AUTH0_DOMAIN: ccc.us.auth0.com
